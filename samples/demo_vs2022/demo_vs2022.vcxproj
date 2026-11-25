@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<?xml version='1.0' encoding='utf-8'?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -140,12 +140,7 @@ if not exist  "..\bin\opencv_world4100.dll"  (if exist "..\..\lib\x86\opencv_wor
       <AdditionalDependencies>pdfsolidconversionsdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist  "..\bin\pdfsolidconversionsdk.dll"  (if exist "..\..\lib\x64\pdfsolidconversionsdk.dll" (xcopy /Y  "..\..\lib\x64\pdfsolidconversionsdk.dll" "..\bin\") else echo lib not exit,copy lib fail)
-if not exist  "..\bin\DocumentAI.dll"  (if exist "..\..\lib\x64\DocumentAI.dll" (xcopy /Y  "..\..\lib\x64\DocumentAI.dll" "..\bin\") else echo lib not exit,copy lib fail)
-if not exist  "..\bin\onnxruntime.dll"  (if exist "..\..\lib\x64\onnxruntime.dll" (xcopy /Y  "..\..\lib\x64\onnxruntime.dll" "..\bin\") else echo lib not exit,copy lib fail)
-if not exist  "..\bin\onnxruntime_providers_shared.dll"  (if exist "..\..\lib\x64\onnxruntime_providers_shared.dll" (xcopy /Y  "..\..\lib\x64\onnxruntime_providers_shared.dll" "..\bin\") else echo lib not exit,copy lib fail)
-if not exist  "..\bin\opencv_world4100.dll"  (if exist "..\..\lib\x64\opencv_world4100.dll" (xcopy /Y  "..\..\lib\x64\opencv_world4100.dll" "..\bin\") else echo lib not exit,copy lib fail)
-</Command>
+      <Command>copy /Y "$(ProjectDir)..\..\lib\x64\*.dll" "$(TargetDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -166,11 +161,7 @@ if not exist  "..\bin\opencv_world4100.dll"  (if exist "..\..\lib\x64\opencv_wor
       <AdditionalDependencies>pdfsolidconversionsdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist  "..\bin\pdfsolidconversionsdk.dll"  (if exist "..\..\lib\x64\pdfsolidconversionsdk.dll" (xcopy /Y  "..\..\lib\x64\pdfsolidconversionsdk.dll" "..\bin\") else echo lib not exit,copy lib fail)
-if not exist  "..\bin\DocumentAI.dll"  (if exist "..\..\lib\x64\DocumentAI.dll" (xcopy /Y  "..\..\lib\x64\DocumentAI.dll" "..\bin\") else echo lib not exit,copy lib fail)
-if not exist  "..\bin\onnxruntime.dll"  (if exist "..\..\lib\x64\onnxruntime.dll" (xcopy /Y  "..\..\lib\x64\onnxruntime.dll" "..\bin\") else echo lib not exit,copy lib fail)
-if not exist  "..\bin\onnxruntime_providers_shared.dll"  (if exist "..\..\lib\x64\onnxruntime_providers_shared.dll" (xcopy /Y  "..\..\lib\x64\onnxruntime_providers_shared.dll" "..\bin\") else echo lib not exit,copy lib fail)
-if not exist  "..\bin\opencv_world4100.dll"  (if exist "..\..\lib\x64\opencv_world4100.dll" (xcopy /Y  "..\..\lib\x64\opencv_world4100.dll" "..\bin\") else echo lib not exit,copy lib fail)</Command>
+      <Command>copy /Y "$(ProjectDir)..\..\lib\x64\*.dll" "$(TargetDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
